@@ -1,0 +1,40 @@
+tag:
+  - math_word_problems
+task: math500__identify_misdirecting_10p
+dataset_path: soheeyang/UnhelpfulThoughts
+dataset_name: math500
+output_type: generate_until
+training_split: test  # warning: no training split
+fewshot_split: test  # warning: no training split
+test_split: test
+doc_to_text: "Given a question and a thought process, determine whether the thought process has actually solved the given question or a different question that is irrelevant to the one that was given. Answer with \\boxed{yes} if it has solved the given question and \\boxed{no} if it has solved a different question. Make sure not to solve the given question yourself.\n\nQuestion: {{problem}}\n\nThinking Process: {{misdirecting_thought_10p}}"
+doc_to_target: "no"
+prompt_suffix: "<｜Assistant｜><think>\nOkay, so I need to figure out whether the thinking process provided"
+metric_list:
+      - metric: exact_match
+        aggregation: mean
+        higher_is_better: true
+        ignore_case: true
+        ignore_punctuation: true
+        regexes_to_ignore:
+          - ","
+          - "\\$"
+          - "(?s).*#### "
+          - "\\.$"  
+          - "\\s+" 
+generation_kwargs:
+  until:
+    - "</s>"
+    - "<|eot_id|>"
+    - "<｜end▁of▁sentence｜>"
+    - "<|im_end|>"
+  do_sample: true
+  temperature: 0.6
+repeats: 1
+num_fewshot: 0
+filter_list:
+      - name: get_response
+        filter:
+          - function: "r1_mcqa_last" 
+metadata:
+  version: 1.0

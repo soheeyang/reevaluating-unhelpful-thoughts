@@ -1,0 +1,1931 @@
+{
+  "dataset_id": "soheeyang/UnhelpfulThoughts",
+  "source_url": "https://huggingface.co/api/datasets/soheeyang/UnhelpfulThoughts",
+  "verified_utc": "2026-10-07",
+  "private": false,
+  "gated": false,
+  "configs": {
+    "aime24": {
+      "features": [
+        {
+          "name": "id",
+          "dtype": "int64"
+        },
+        {
+          "name": "problem",
+          "dtype": "string"
+        },
+        {
+          "name": "solution",
+          "dtype": "string"
+        },
+        {
+          "name": "answer",
+          "dtype": "string"
+        },
+        {
+          "name": "url",
+          "dtype": "string"
+        },
+        {
+          "name": "year",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Llama_70B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Qwen_32B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Qwen_14B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Llama_8B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Qwen_7B",
+          "dtype": "string"
+        },
+        {
+          "name": "incorrect_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "uninformative_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought_66p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_question",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_answer",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought_66p",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought_66p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought_66p",
+          "dtype": "string"
+        }
+      ],
+      "splits": {
+        "train": {
+          "num_examples": 30,
+          "num_bytes": 12152804,
+          "columns": [
+            "id",
+            "problem",
+            "solution",
+            "answer",
+            "url",
+            "year",
+            "thought__DeepSeek_R1_Distill_Llama_70B",
+            "thought__DeepSeek_R1_Distill_Qwen_32B",
+            "thought__DeepSeek_R1_Distill_Qwen_14B",
+            "thought__DeepSeek_R1_Distill_Llama_8B",
+            "thought__DeepSeek_R1_Distill_Qwen_7B",
+            "incorrect_thought",
+            "uninformative_thought",
+            "irrelevant_thought",
+            "irrelevant_thought_10p",
+            "irrelevant_thought_33p",
+            "irrelevant_thought_66p",
+            "misdirecting_question",
+            "misdirecting_answer",
+            "s1_misdirecting_thought",
+            "s1_misdirecting_thought_10p",
+            "s1_misdirecting_thought_33p",
+            "s1_misdirecting_thought_66p",
+            "exaone_misdirecting_thought",
+            "exaone_misdirecting_thought_10p",
+            "exaone_misdirecting_thought_33p",
+            "exaone_misdirecting_thought_66p",
+            "misdirecting_thought",
+            "misdirecting_thought_10p",
+            "misdirecting_thought_33p",
+            "misdirecting_thought_66p"
+          ]
+        }
+      }
+    },
+    "aime24_correct": {
+      "features": [
+        {
+          "name": "id",
+          "dtype": "int64"
+        },
+        {
+          "name": "problem",
+          "dtype": "string"
+        },
+        {
+          "name": "solution",
+          "dtype": "string"
+        },
+        {
+          "name": "answer",
+          "dtype": "string"
+        },
+        {
+          "name": "url",
+          "dtype": "string"
+        },
+        {
+          "name": "year",
+          "dtype": "string"
+        },
+        {
+          "name": "correct_thought",
+          "dtype": "string"
+        }
+      ],
+      "splits": {
+        "train": {
+          "num_examples": 25,
+          "num_bytes": 601679,
+          "columns": [
+            "id",
+            "problem",
+            "solution",
+            "answer",
+            "url",
+            "year",
+            "correct_thought"
+          ]
+        }
+      }
+    },
+    "arc": {
+      "features": [
+        {
+          "name": "id",
+          "dtype": "string"
+        },
+        {
+          "name": "question",
+          "dtype": "string"
+        },
+        {
+          "name": "choices",
+          "struct": [
+            {
+              "name": "label",
+              "sequence": "string"
+            },
+            {
+              "name": "text",
+              "sequence": "string"
+            }
+          ]
+        },
+        {
+          "name": "answerKey",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Llama_70B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Qwen_32B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Qwen_14B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Llama_8B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Qwen_7B",
+          "dtype": "string"
+        },
+        {
+          "name": "incorrect_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "uninformative_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought_66p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_question",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_answer",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought_66p",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought_66p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought_66p",
+          "dtype": "string"
+        }
+      ],
+      "splits": {
+        "train": {
+          "num_examples": 1119,
+          "num_bytes": 461660,
+          "columns": [
+            "id",
+            "question",
+            "choices",
+            "answerKey",
+            "thought__DeepSeek_R1_Distill_Llama_70B",
+            "thought__DeepSeek_R1_Distill_Qwen_32B",
+            "thought__DeepSeek_R1_Distill_Qwen_14B",
+            "thought__DeepSeek_R1_Distill_Llama_8B",
+            "thought__DeepSeek_R1_Distill_Qwen_7B",
+            "incorrect_thought",
+            "uninformative_thought",
+            "irrelevant_thought",
+            "irrelevant_thought_10p",
+            "irrelevant_thought_33p",
+            "irrelevant_thought_66p",
+            "misdirecting_question",
+            "misdirecting_answer",
+            "s1_misdirecting_thought",
+            "s1_misdirecting_thought_10p",
+            "s1_misdirecting_thought_33p",
+            "s1_misdirecting_thought_66p",
+            "exaone_misdirecting_thought",
+            "exaone_misdirecting_thought_10p",
+            "exaone_misdirecting_thought_33p",
+            "exaone_misdirecting_thought_66p",
+            "misdirecting_thought",
+            "misdirecting_thought_10p",
+            "misdirecting_thought_33p",
+            "misdirecting_thought_66p"
+          ]
+        },
+        "test": {
+          "num_examples": 1172,
+          "num_bytes": 103666883,
+          "columns": [
+            "id",
+            "question",
+            "choices",
+            "answerKey",
+            "thought__DeepSeek_R1_Distill_Llama_70B",
+            "thought__DeepSeek_R1_Distill_Qwen_32B",
+            "thought__DeepSeek_R1_Distill_Qwen_14B",
+            "thought__DeepSeek_R1_Distill_Llama_8B",
+            "thought__DeepSeek_R1_Distill_Qwen_7B",
+            "incorrect_thought",
+            "uninformative_thought",
+            "irrelevant_thought",
+            "irrelevant_thought_10p",
+            "irrelevant_thought_33p",
+            "irrelevant_thought_66p",
+            "misdirecting_question",
+            "misdirecting_answer",
+            "s1_misdirecting_thought",
+            "s1_misdirecting_thought_10p",
+            "s1_misdirecting_thought_33p",
+            "s1_misdirecting_thought_66p",
+            "exaone_misdirecting_thought",
+            "exaone_misdirecting_thought_10p",
+            "exaone_misdirecting_thought_33p",
+            "exaone_misdirecting_thought_66p",
+            "misdirecting_thought",
+            "misdirecting_thought_10p",
+            "misdirecting_thought_33p",
+            "misdirecting_thought_66p"
+          ]
+        },
+        "validation": {
+          "num_examples": 299,
+          "num_bytes": 126560,
+          "columns": [
+            "id",
+            "question",
+            "choices",
+            "answerKey",
+            "thought__DeepSeek_R1_Distill_Llama_70B",
+            "thought__DeepSeek_R1_Distill_Qwen_32B",
+            "thought__DeepSeek_R1_Distill_Qwen_14B",
+            "thought__DeepSeek_R1_Distill_Llama_8B",
+            "thought__DeepSeek_R1_Distill_Qwen_7B",
+            "incorrect_thought",
+            "uninformative_thought",
+            "irrelevant_thought",
+            "irrelevant_thought_10p",
+            "irrelevant_thought_33p",
+            "irrelevant_thought_66p",
+            "misdirecting_question",
+            "misdirecting_answer",
+            "s1_misdirecting_thought",
+            "s1_misdirecting_thought_10p",
+            "s1_misdirecting_thought_33p",
+            "s1_misdirecting_thought_66p",
+            "exaone_misdirecting_thought",
+            "exaone_misdirecting_thought_10p",
+            "exaone_misdirecting_thought_33p",
+            "exaone_misdirecting_thought_66p",
+            "misdirecting_thought",
+            "misdirecting_thought_10p",
+            "misdirecting_thought_33p",
+            "misdirecting_thought_66p"
+          ]
+        }
+      }
+    },
+    "arc_correct": {
+      "features": [
+        {
+          "name": "id",
+          "dtype": "string"
+        },
+        {
+          "name": "question",
+          "dtype": "string"
+        },
+        {
+          "name": "choices",
+          "struct": [
+            {
+              "name": "label",
+              "sequence": "string"
+            },
+            {
+              "name": "text",
+              "sequence": "string"
+            }
+          ]
+        },
+        {
+          "name": "answerKey",
+          "dtype": "string"
+        },
+        {
+          "name": "correct_thought",
+          "dtype": "string"
+        }
+      ],
+      "splits": {
+        "train": {
+          "num_examples": 1119,
+          "num_bytes": 354236,
+          "columns": [
+            "id",
+            "question",
+            "choices",
+            "answerKey",
+            "correct_thought"
+          ]
+        },
+        "test": {
+          "num_examples": 1160,
+          "num_bytes": 3946597,
+          "columns": [
+            "id",
+            "question",
+            "choices",
+            "answerKey",
+            "correct_thought"
+          ]
+        },
+        "validation": {
+          "num_examples": 299,
+          "num_bytes": 97856,
+          "columns": [
+            "id",
+            "question",
+            "choices",
+            "answerKey",
+            "correct_thought"
+          ]
+        }
+      }
+    },
+    "gpqa": {
+      "features": [
+        {
+          "name": "Pre-Revision Question",
+          "dtype": "string"
+        },
+        {
+          "name": "Pre-Revision Correct Answer",
+          "dtype": "string"
+        },
+        {
+          "name": "Pre-Revision Incorrect Answer 1",
+          "dtype": "string"
+        },
+        {
+          "name": "Pre-Revision Incorrect Answer 2",
+          "dtype": "string"
+        },
+        {
+          "name": "Pre-Revision Incorrect Answer 3",
+          "dtype": "string"
+        },
+        {
+          "name": "Pre-Revision Explanation",
+          "dtype": "string"
+        },
+        {
+          "name": "Self-reported question-writing time (minutes)",
+          "dtype": "float64"
+        },
+        {
+          "name": "Question",
+          "dtype": "string"
+        },
+        {
+          "name": "Correct Answer",
+          "dtype": "string"
+        },
+        {
+          "name": "Incorrect Answer 1",
+          "dtype": "string"
+        },
+        {
+          "name": "Incorrect Answer 2",
+          "dtype": "string"
+        },
+        {
+          "name": "Incorrect Answer 3",
+          "dtype": "string"
+        },
+        {
+          "name": "Explanation",
+          "dtype": "string"
+        },
+        {
+          "name": "Revision Comments (from Question Writer)",
+          "dtype": "string"
+        },
+        {
+          "name": "Subdomain",
+          "dtype": "string"
+        },
+        {
+          "name": "Writer's Difficulty Estimate",
+          "dtype": "string"
+        },
+        {
+          "name": "Extra Revised Question",
+          "dtype": "string"
+        },
+        {
+          "name": "Extra Revised Explanation",
+          "dtype": "string"
+        },
+        {
+          "name": "Extra Revised Correct Answer",
+          "dtype": "string"
+        },
+        {
+          "name": "Extra Revised Incorrect Answer 1",
+          "dtype": "string"
+        },
+        {
+          "name": "Extra Revised Incorrect Answer 2",
+          "dtype": "string"
+        },
+        {
+          "name": "Extra Revised Incorrect Answer 3",
+          "dtype": "string"
+        },
+        {
+          "name": "Non-Expert Validator Accuracy",
+          "dtype": "float64"
+        },
+        {
+          "name": "Majority Non-Expert Vals Incorrect",
+          "dtype": "float64"
+        },
+        {
+          "name": "Expert Validator Accuracy",
+          "dtype": "float64"
+        },
+        {
+          "name": "Record ID",
+          "dtype": "string"
+        },
+        {
+          "name": "High-level domain",
+          "dtype": "string"
+        },
+        {
+          "name": "Question Writer",
+          "dtype": "string"
+        },
+        {
+          "name": "Feedback_EV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Validator Revision Suggestion_EV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Is First Validation_EV_1",
+          "dtype": "bool"
+        },
+        {
+          "name": "Post hoc agreement_EV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Sufficient Expertise?_EV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Understand the question?_EV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Question Difficulty_EV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Validator Answered Correctly_EV_1",
+          "dtype": "int64"
+        },
+        {
+          "name": "Self-reported time (minutes)_EV_1",
+          "dtype": "float64"
+        },
+        {
+          "name": "Probability Correct_EV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Manual Correctness Adjustment_EV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Expert Validator_EV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Feedback_EV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Validator Revision Suggestion_EV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Is First Validation_EV_2",
+          "dtype": "bool"
+        },
+        {
+          "name": "Post hoc agreement_EV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Sufficient Expertise?_EV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Understand the question?_EV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Question Difficulty_EV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Validator Answered Correctly_EV_2",
+          "dtype": "int64"
+        },
+        {
+          "name": "Self-reported time (minutes)_EV_2",
+          "dtype": "float64"
+        },
+        {
+          "name": "Probability Correct_EV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Manual Correctness Adjustment_EV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Expert Validator_EV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Feedback_NEV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Validator Answered Correctly_NEV_1",
+          "dtype": "int64"
+        },
+        {
+          "name": "Explanation_NEV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Self-reported time (minutes)_NEV_1",
+          "dtype": "float64"
+        },
+        {
+          "name": "Websites visited_NEV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Probability Correct_NEV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Manual Correctness Adjustment_NEV_1",
+          "dtype": "null"
+        },
+        {
+          "name": "Non-Expert Validator_NEV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Feedback_NEV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Validator Answered Correctly_NEV_2",
+          "dtype": "int64"
+        },
+        {
+          "name": "Explanation_NEV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Self-reported time (minutes)_NEV_2",
+          "dtype": "float64"
+        },
+        {
+          "name": "Websites visited_NEV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Probability Correct_NEV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Manual Correctness Adjustment_NEV_2",
+          "dtype": "null"
+        },
+        {
+          "name": "Non-Expert Validator_NEV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Feedback_NEV_3",
+          "dtype": "string"
+        },
+        {
+          "name": "Validator Answered Correctly_NEV_3",
+          "dtype": "float64"
+        },
+        {
+          "name": "Explanation_NEV_3",
+          "dtype": "string"
+        },
+        {
+          "name": "Self-reported time (minutes)_NEV_3",
+          "dtype": "float64"
+        },
+        {
+          "name": "Websites visited_NEV_3",
+          "dtype": "string"
+        },
+        {
+          "name": "Probability Correct_NEV_3",
+          "dtype": "string"
+        },
+        {
+          "name": "Manual Correctness Adjustment_NEV_3",
+          "dtype": "null"
+        },
+        {
+          "name": "Non-Expert Validator_NEV_3",
+          "dtype": "string"
+        },
+        {
+          "name": "Expert Validator Disagreement Category",
+          "dtype": "float64"
+        },
+        {
+          "name": "Canary String",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Llama_70B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Qwen_32B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Qwen_14B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Llama_8B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Qwen_7B",
+          "dtype": "string"
+        },
+        {
+          "name": "incorrect_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "uninformative_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought_66p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_question",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_answer",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought_66p",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought_66p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought_66p",
+          "dtype": "string"
+        }
+      ],
+      "splits": {
+        "train": {
+          "num_examples": 198,
+          "num_bytes": 68188260,
+          "columns": [
+            "Pre-Revision Question",
+            "Pre-Revision Correct Answer",
+            "Pre-Revision Incorrect Answer 1",
+            "Pre-Revision Incorrect Answer 2",
+            "Pre-Revision Incorrect Answer 3",
+            "Pre-Revision Explanation",
+            "Self-reported question-writing time (minutes)",
+            "Question",
+            "Correct Answer",
+            "Incorrect Answer 1",
+            "Incorrect Answer 2",
+            "Incorrect Answer 3",
+            "Explanation",
+            "Revision Comments (from Question Writer)",
+            "Subdomain",
+            "Writer's Difficulty Estimate",
+            "Extra Revised Question",
+            "Extra Revised Explanation",
+            "Extra Revised Correct Answer",
+            "Extra Revised Incorrect Answer 1",
+            "Extra Revised Incorrect Answer 2",
+            "Extra Revised Incorrect Answer 3",
+            "Non-Expert Validator Accuracy",
+            "Majority Non-Expert Vals Incorrect",
+            "Expert Validator Accuracy",
+            "Record ID",
+            "High-level domain",
+            "Question Writer",
+            "Feedback_EV_1",
+            "Validator Revision Suggestion_EV_1",
+            "Is First Validation_EV_1",
+            "Post hoc agreement_EV_1",
+            "Sufficient Expertise?_EV_1",
+            "Understand the question?_EV_1",
+            "Question Difficulty_EV_1",
+            "Validator Answered Correctly_EV_1",
+            "Self-reported time (minutes)_EV_1",
+            "Probability Correct_EV_1",
+            "Manual Correctness Adjustment_EV_1",
+            "Expert Validator_EV_1",
+            "Feedback_EV_2",
+            "Validator Revision Suggestion_EV_2",
+            "Is First Validation_EV_2",
+            "Post hoc agreement_EV_2",
+            "Sufficient Expertise?_EV_2",
+            "Understand the question?_EV_2",
+            "Question Difficulty_EV_2",
+            "Validator Answered Correctly_EV_2",
+            "Self-reported time (minutes)_EV_2",
+            "Probability Correct_EV_2",
+            "Manual Correctness Adjustment_EV_2",
+            "Expert Validator_EV_2",
+            "Feedback_NEV_1",
+            "Validator Answered Correctly_NEV_1",
+            "Explanation_NEV_1",
+            "Self-reported time (minutes)_NEV_1",
+            "Websites visited_NEV_1",
+            "Probability Correct_NEV_1",
+            "Manual Correctness Adjustment_NEV_1",
+            "Non-Expert Validator_NEV_1",
+            "Feedback_NEV_2",
+            "Validator Answered Correctly_NEV_2",
+            "Explanation_NEV_2",
+            "Self-reported time (minutes)_NEV_2",
+            "Websites visited_NEV_2",
+            "Probability Correct_NEV_2",
+            "Manual Correctness Adjustment_NEV_2",
+            "Non-Expert Validator_NEV_2",
+            "Feedback_NEV_3",
+            "Validator Answered Correctly_NEV_3",
+            "Explanation_NEV_3",
+            "Self-reported time (minutes)_NEV_3",
+            "Websites visited_NEV_3",
+            "Probability Correct_NEV_3",
+            "Manual Correctness Adjustment_NEV_3",
+            "Non-Expert Validator_NEV_3",
+            "Expert Validator Disagreement Category",
+            "Canary String",
+            "thought__DeepSeek_R1_Distill_Llama_70B",
+            "thought__DeepSeek_R1_Distill_Qwen_32B",
+            "thought__DeepSeek_R1_Distill_Qwen_14B",
+            "thought__DeepSeek_R1_Distill_Llama_8B",
+            "thought__DeepSeek_R1_Distill_Qwen_7B",
+            "incorrect_thought",
+            "uninformative_thought",
+            "irrelevant_thought",
+            "irrelevant_thought_10p",
+            "irrelevant_thought_33p",
+            "irrelevant_thought_66p",
+            "misdirecting_question",
+            "misdirecting_answer",
+            "s1_misdirecting_thought",
+            "s1_misdirecting_thought_10p",
+            "s1_misdirecting_thought_33p",
+            "s1_misdirecting_thought_66p",
+            "exaone_misdirecting_thought",
+            "exaone_misdirecting_thought_10p",
+            "exaone_misdirecting_thought_33p",
+            "exaone_misdirecting_thought_66p",
+            "misdirecting_thought",
+            "misdirecting_thought_10p",
+            "misdirecting_thought_33p",
+            "misdirecting_thought_66p"
+          ]
+        }
+      }
+    },
+    "gpqa_correct": {
+      "features": [
+        {
+          "name": "Pre-Revision Question",
+          "dtype": "string"
+        },
+        {
+          "name": "Pre-Revision Correct Answer",
+          "dtype": "string"
+        },
+        {
+          "name": "Pre-Revision Incorrect Answer 1",
+          "dtype": "string"
+        },
+        {
+          "name": "Pre-Revision Incorrect Answer 2",
+          "dtype": "string"
+        },
+        {
+          "name": "Pre-Revision Incorrect Answer 3",
+          "dtype": "string"
+        },
+        {
+          "name": "Pre-Revision Explanation",
+          "dtype": "string"
+        },
+        {
+          "name": "Self-reported question-writing time (minutes)",
+          "dtype": "float64"
+        },
+        {
+          "name": "Question",
+          "dtype": "string"
+        },
+        {
+          "name": "Correct Answer",
+          "dtype": "string"
+        },
+        {
+          "name": "Incorrect Answer 1",
+          "dtype": "string"
+        },
+        {
+          "name": "Incorrect Answer 2",
+          "dtype": "string"
+        },
+        {
+          "name": "Incorrect Answer 3",
+          "dtype": "string"
+        },
+        {
+          "name": "Explanation",
+          "dtype": "string"
+        },
+        {
+          "name": "Revision Comments (from Question Writer)",
+          "dtype": "string"
+        },
+        {
+          "name": "Subdomain",
+          "dtype": "string"
+        },
+        {
+          "name": "Writer's Difficulty Estimate",
+          "dtype": "string"
+        },
+        {
+          "name": "Extra Revised Question",
+          "dtype": "string"
+        },
+        {
+          "name": "Extra Revised Explanation",
+          "dtype": "string"
+        },
+        {
+          "name": "Extra Revised Correct Answer",
+          "dtype": "string"
+        },
+        {
+          "name": "Extra Revised Incorrect Answer 1",
+          "dtype": "string"
+        },
+        {
+          "name": "Extra Revised Incorrect Answer 2",
+          "dtype": "string"
+        },
+        {
+          "name": "Extra Revised Incorrect Answer 3",
+          "dtype": "string"
+        },
+        {
+          "name": "Non-Expert Validator Accuracy",
+          "dtype": "float64"
+        },
+        {
+          "name": "Majority Non-Expert Vals Incorrect",
+          "dtype": "float64"
+        },
+        {
+          "name": "Expert Validator Accuracy",
+          "dtype": "float64"
+        },
+        {
+          "name": "Record ID",
+          "dtype": "string"
+        },
+        {
+          "name": "High-level domain",
+          "dtype": "string"
+        },
+        {
+          "name": "Question Writer",
+          "dtype": "string"
+        },
+        {
+          "name": "Feedback_EV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Validator Revision Suggestion_EV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Is First Validation_EV_1",
+          "dtype": "bool"
+        },
+        {
+          "name": "Post hoc agreement_EV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Sufficient Expertise?_EV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Understand the question?_EV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Question Difficulty_EV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Validator Answered Correctly_EV_1",
+          "dtype": "int64"
+        },
+        {
+          "name": "Self-reported time (minutes)_EV_1",
+          "dtype": "float64"
+        },
+        {
+          "name": "Probability Correct_EV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Manual Correctness Adjustment_EV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Expert Validator_EV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Feedback_EV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Validator Revision Suggestion_EV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Is First Validation_EV_2",
+          "dtype": "bool"
+        },
+        {
+          "name": "Post hoc agreement_EV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Sufficient Expertise?_EV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Understand the question?_EV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Question Difficulty_EV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Validator Answered Correctly_EV_2",
+          "dtype": "int64"
+        },
+        {
+          "name": "Self-reported time (minutes)_EV_2",
+          "dtype": "float64"
+        },
+        {
+          "name": "Probability Correct_EV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Manual Correctness Adjustment_EV_2",
+          "dtype": "null"
+        },
+        {
+          "name": "Expert Validator_EV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Feedback_NEV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Validator Answered Correctly_NEV_1",
+          "dtype": "int64"
+        },
+        {
+          "name": "Explanation_NEV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Self-reported time (minutes)_NEV_1",
+          "dtype": "float64"
+        },
+        {
+          "name": "Websites visited_NEV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Probability Correct_NEV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Manual Correctness Adjustment_NEV_1",
+          "dtype": "null"
+        },
+        {
+          "name": "Non-Expert Validator_NEV_1",
+          "dtype": "string"
+        },
+        {
+          "name": "Feedback_NEV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Validator Answered Correctly_NEV_2",
+          "dtype": "int64"
+        },
+        {
+          "name": "Explanation_NEV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Self-reported time (minutes)_NEV_2",
+          "dtype": "float64"
+        },
+        {
+          "name": "Websites visited_NEV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Probability Correct_NEV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Manual Correctness Adjustment_NEV_2",
+          "dtype": "null"
+        },
+        {
+          "name": "Non-Expert Validator_NEV_2",
+          "dtype": "string"
+        },
+        {
+          "name": "Feedback_NEV_3",
+          "dtype": "string"
+        },
+        {
+          "name": "Validator Answered Correctly_NEV_3",
+          "dtype": "float64"
+        },
+        {
+          "name": "Explanation_NEV_3",
+          "dtype": "string"
+        },
+        {
+          "name": "Self-reported time (minutes)_NEV_3",
+          "dtype": "float64"
+        },
+        {
+          "name": "Websites visited_NEV_3",
+          "dtype": "string"
+        },
+        {
+          "name": "Probability Correct_NEV_3",
+          "dtype": "string"
+        },
+        {
+          "name": "Manual Correctness Adjustment_NEV_3",
+          "dtype": "null"
+        },
+        {
+          "name": "Non-Expert Validator_NEV_3",
+          "dtype": "string"
+        },
+        {
+          "name": "Expert Validator Disagreement Category",
+          "dtype": "float64"
+        },
+        {
+          "name": "Canary String",
+          "dtype": "string"
+        },
+        {
+          "name": "correct_thought",
+          "dtype": "string"
+        }
+      ],
+      "splits": {
+        "train": {
+          "num_examples": 165,
+          "num_bytes": 4245531,
+          "columns": [
+            "Pre-Revision Question",
+            "Pre-Revision Correct Answer",
+            "Pre-Revision Incorrect Answer 1",
+            "Pre-Revision Incorrect Answer 2",
+            "Pre-Revision Incorrect Answer 3",
+            "Pre-Revision Explanation",
+            "Self-reported question-writing time (minutes)",
+            "Question",
+            "Correct Answer",
+            "Incorrect Answer 1",
+            "Incorrect Answer 2",
+            "Incorrect Answer 3",
+            "Explanation",
+            "Revision Comments (from Question Writer)",
+            "Subdomain",
+            "Writer's Difficulty Estimate",
+            "Extra Revised Question",
+            "Extra Revised Explanation",
+            "Extra Revised Correct Answer",
+            "Extra Revised Incorrect Answer 1",
+            "Extra Revised Incorrect Answer 2",
+            "Extra Revised Incorrect Answer 3",
+            "Non-Expert Validator Accuracy",
+            "Majority Non-Expert Vals Incorrect",
+            "Expert Validator Accuracy",
+            "Record ID",
+            "High-level domain",
+            "Question Writer",
+            "Feedback_EV_1",
+            "Validator Revision Suggestion_EV_1",
+            "Is First Validation_EV_1",
+            "Post hoc agreement_EV_1",
+            "Sufficient Expertise?_EV_1",
+            "Understand the question?_EV_1",
+            "Question Difficulty_EV_1",
+            "Validator Answered Correctly_EV_1",
+            "Self-reported time (minutes)_EV_1",
+            "Probability Correct_EV_1",
+            "Manual Correctness Adjustment_EV_1",
+            "Expert Validator_EV_1",
+            "Feedback_EV_2",
+            "Validator Revision Suggestion_EV_2",
+            "Is First Validation_EV_2",
+            "Post hoc agreement_EV_2",
+            "Sufficient Expertise?_EV_2",
+            "Understand the question?_EV_2",
+            "Question Difficulty_EV_2",
+            "Validator Answered Correctly_EV_2",
+            "Self-reported time (minutes)_EV_2",
+            "Probability Correct_EV_2",
+            "Manual Correctness Adjustment_EV_2",
+            "Expert Validator_EV_2",
+            "Feedback_NEV_1",
+            "Validator Answered Correctly_NEV_1",
+            "Explanation_NEV_1",
+            "Self-reported time (minutes)_NEV_1",
+            "Websites visited_NEV_1",
+            "Probability Correct_NEV_1",
+            "Manual Correctness Adjustment_NEV_1",
+            "Non-Expert Validator_NEV_1",
+            "Feedback_NEV_2",
+            "Validator Answered Correctly_NEV_2",
+            "Explanation_NEV_2",
+            "Self-reported time (minutes)_NEV_2",
+            "Websites visited_NEV_2",
+            "Probability Correct_NEV_2",
+            "Manual Correctness Adjustment_NEV_2",
+            "Non-Expert Validator_NEV_2",
+            "Feedback_NEV_3",
+            "Validator Answered Correctly_NEV_3",
+            "Explanation_NEV_3",
+            "Self-reported time (minutes)_NEV_3",
+            "Websites visited_NEV_3",
+            "Probability Correct_NEV_3",
+            "Manual Correctness Adjustment_NEV_3",
+            "Non-Expert Validator_NEV_3",
+            "Expert Validator Disagreement Category",
+            "Canary String",
+            "correct_thought"
+          ]
+        }
+      }
+    },
+    "harmbench": {
+      "features": [
+        {
+          "name": "prompt",
+          "dtype": "string"
+        },
+        {
+          "name": "category",
+          "dtype": "string"
+        },
+        {
+          "name": "question",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_question",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_question",
+          "dtype": "string"
+        },
+        {
+          "name": "unformatted_question",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_unformatted_question",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_unformatted_question",
+          "dtype": "string"
+        }
+      ],
+      "splits": {
+        "train": {
+          "num_examples": 200,
+          "num_bytes": 299541,
+          "columns": [
+            "prompt",
+            "category",
+            "question",
+            "irrelevant_question",
+            "misdirecting_question",
+            "unformatted_question",
+            "irrelevant_unformatted_question",
+            "misdirecting_unformatted_question"
+          ]
+        }
+      }
+    },
+    "humaneval": {
+      "features": [
+        {
+          "name": "task_id",
+          "dtype": "string"
+        },
+        {
+          "name": "prompt",
+          "dtype": "string"
+        },
+        {
+          "name": "canonical_solution",
+          "dtype": "string"
+        },
+        {
+          "name": "test",
+          "dtype": "string"
+        },
+        {
+          "name": "entry_point",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Llama_70B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Qwen_32B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Qwen_14B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Llama_8B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Qwen_7B",
+          "dtype": "string"
+        },
+        {
+          "name": "incorrect_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "uninformative_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought_66p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_question",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_answer",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought_66p",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought_66p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought_66p",
+          "dtype": "string"
+        }
+      ],
+      "splits": {
+        "test": {
+          "num_examples": 164,
+          "num_bytes": 30676316,
+          "columns": [
+            "task_id",
+            "prompt",
+            "canonical_solution",
+            "test",
+            "entry_point",
+            "thought__DeepSeek_R1_Distill_Llama_70B",
+            "thought__DeepSeek_R1_Distill_Qwen_32B",
+            "thought__DeepSeek_R1_Distill_Qwen_14B",
+            "thought__DeepSeek_R1_Distill_Llama_8B",
+            "thought__DeepSeek_R1_Distill_Qwen_7B",
+            "incorrect_thought",
+            "uninformative_thought",
+            "irrelevant_thought",
+            "irrelevant_thought_10p",
+            "irrelevant_thought_33p",
+            "irrelevant_thought_66p",
+            "misdirecting_question",
+            "misdirecting_answer",
+            "s1_misdirecting_thought",
+            "s1_misdirecting_thought_10p",
+            "s1_misdirecting_thought_33p",
+            "s1_misdirecting_thought_66p",
+            "exaone_misdirecting_thought",
+            "exaone_misdirecting_thought_10p",
+            "exaone_misdirecting_thought_33p",
+            "exaone_misdirecting_thought_66p",
+            "misdirecting_thought",
+            "misdirecting_thought_10p",
+            "misdirecting_thought_33p",
+            "misdirecting_thought_66p"
+          ]
+        }
+      }
+    },
+    "humaneval_correct": {
+      "features": [
+        {
+          "name": "task_id",
+          "dtype": "string"
+        },
+        {
+          "name": "prompt",
+          "dtype": "string"
+        },
+        {
+          "name": "canonical_solution",
+          "dtype": "string"
+        },
+        {
+          "name": "test",
+          "dtype": "string"
+        },
+        {
+          "name": "entry_point",
+          "dtype": "string"
+        },
+        {
+          "name": "correct_thought",
+          "dtype": "string"
+        }
+      ],
+      "splits": {
+        "test": {
+          "num_examples": 160,
+          "num_bytes": 1506599,
+          "columns": [
+            "task_id",
+            "prompt",
+            "canonical_solution",
+            "test",
+            "entry_point",
+            "correct_thought"
+          ]
+        }
+      }
+    },
+    "math500": {
+      "features": [
+        {
+          "name": "problem",
+          "dtype": "string"
+        },
+        {
+          "name": "solution",
+          "dtype": "string"
+        },
+        {
+          "name": "answer",
+          "dtype": "string"
+        },
+        {
+          "name": "subject",
+          "dtype": "string"
+        },
+        {
+          "name": "level",
+          "dtype": "int64"
+        },
+        {
+          "name": "unique_id",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Llama_70B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Qwen_32B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Qwen_14B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Llama_8B",
+          "dtype": "string"
+        },
+        {
+          "name": "thought__DeepSeek_R1_Distill_Qwen_7B",
+          "dtype": "string"
+        },
+        {
+          "name": "incorrect_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "uninformative_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "irrelevant_thought_66p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_question",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_answer",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "s1_misdirecting_thought_66p",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "exaone_misdirecting_thought_66p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought_10p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought_33p",
+          "dtype": "string"
+        },
+        {
+          "name": "misdirecting_thought_66p",
+          "dtype": "string"
+        }
+      ],
+      "splits": {
+        "test": {
+          "num_examples": 500,
+          "num_bytes": 74013468,
+          "columns": [
+            "problem",
+            "solution",
+            "answer",
+            "subject",
+            "level",
+            "unique_id",
+            "thought__DeepSeek_R1_Distill_Llama_70B",
+            "thought__DeepSeek_R1_Distill_Qwen_32B",
+            "thought__DeepSeek_R1_Distill_Qwen_14B",
+            "thought__DeepSeek_R1_Distill_Llama_8B",
+            "thought__DeepSeek_R1_Distill_Qwen_7B",
+            "incorrect_thought",
+            "uninformative_thought",
+            "irrelevant_thought",
+            "irrelevant_thought_10p",
+            "irrelevant_thought_33p",
+            "irrelevant_thought_66p",
+            "misdirecting_question",
+            "misdirecting_answer",
+            "s1_misdirecting_thought",
+            "s1_misdirecting_thought_10p",
+            "s1_misdirecting_thought_33p",
+            "s1_misdirecting_thought_66p",
+            "exaone_misdirecting_thought",
+            "exaone_misdirecting_thought_10p",
+            "exaone_misdirecting_thought_33p",
+            "exaone_misdirecting_thought_66p",
+            "misdirecting_thought",
+            "misdirecting_thought_10p",
+            "misdirecting_thought_33p",
+            "misdirecting_thought_66p"
+          ]
+        }
+      }
+    },
+    "math500_correct": {
+      "features": [
+        {
+          "name": "problem",
+          "dtype": "string"
+        },
+        {
+          "name": "solution",
+          "dtype": "string"
+        },
+        {
+          "name": "answer",
+          "dtype": "string"
+        },
+        {
+          "name": "subject",
+          "dtype": "string"
+        },
+        {
+          "name": "level",
+          "dtype": "int64"
+        },
+        {
+          "name": "unique_id",
+          "dtype": "string"
+        },
+        {
+          "name": "correct_thought",
+          "dtype": "string"
+        }
+      ],
+      "splits": {
+        "test": {
+          "num_examples": 485,
+          "num_bytes": 3574249,
+          "columns": [
+            "problem",
+            "solution",
+            "answer",
+            "subject",
+            "level",
+            "unique_id",
+            "correct_thought"
+          ]
+        }
+      }
+    }
+  }
+}

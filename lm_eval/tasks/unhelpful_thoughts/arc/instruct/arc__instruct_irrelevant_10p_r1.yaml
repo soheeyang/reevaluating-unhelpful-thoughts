@@ -1,0 +1,33 @@
+task: arc__instruct_irrelevant_10p_r1
+dataset_path: soheeyang/UnhelpfulThoughts
+dataset_name: arc
+output_type: generate_until
+training_split: train
+validation_split: validation
+test_split: test
+fewshot_split: train
+doc_to_text: 'Answer the following question. Put your final answer (A, B, C, or D) within \\boxed{}. Remember that at any given time during thinking, your previous thoughts might have contained mistakes. Try to spot such issues and reevaluate your thought process whenever you can.\n\nQuestion: {{question.strip()}}\n\n(A) {{choices.text[0]}}\n(B) {{choices.text[1]}}\n(C) {{choices.text[2]}}{% if choices.text|length > 3 %}\n(D) {{choices.text[3]}}{% endif %}'
+fewshot_delimiter: "\n\n"
+doc_to_target: "{{ 'ABCD'[answerKey|int - 1] if answerKey|string in '1234' else answerKey }}"
+prompt_suffix: "<｜Assistant｜><think>\n{{irrelevant_thought_10p}}"
+num_fewshot: 0
+generation_kwargs:
+  until:
+    - "</s>"
+    - "<|eot_id|>"
+    - "<｜end▁of▁sentence｜>"
+    - "<|im_end|>"
+  do_sample: true
+  temperature: 0.6
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+    ignore_case: true
+    ignore_punctuation: true
+filter_list:
+  - name: get_response
+    filter:
+      - function: "r1_mcqa"
+metadata:
+  version: 1.0
