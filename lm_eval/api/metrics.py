@@ -197,7 +197,7 @@ def exact_match_hf_evaluate(
 ):
     if regexes_to_ignore is not None:
         for s in regexes_to_ignore:
-            predictions = np.array([re.sub(s, "", x) for x in predictions])
+            predictions = np.array([[re.sub(s, "", x) for x in prediction] for prediction in predictions])
             references = np.array([re.sub(s, "", x) for x in references])
     else:
         predictions = np.asarray(predictions)

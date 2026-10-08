@@ -4,6 +4,7 @@ import logging
 import random
 import time
 from collections import defaultdict
+import functools
 from typing import TYPE_CHECKING, List, Optional, Union
 
 import numpy as np
@@ -65,6 +66,8 @@ def simple_evaluate(
     evaluation_tracker: Optional[EvaluationTracker] = None,
     system_instruction: Optional[str] = None,
     apply_chat_template: Union[bool, str] = False,
+    no_generation_prompt: bool = False,
+    prompt_suffix: Optional[str] = None,
     fewshot_as_multiturn: bool = False,
     gen_kwargs: Optional[str] = None,
     task_manager: Optional[TaskManager] = None,
@@ -312,6 +315,8 @@ def simple_evaluate(
         log_samples=True if predict_only else log_samples,
         system_instruction=system_instruction,
         apply_chat_template=apply_chat_template,
+        no_generation_prompt=no_generation_prompt,
+        prompt_suffix=prompt_suffix,
         fewshot_as_multiturn=fewshot_as_multiturn,
         verbosity=verbosity,
         confirm_run_unsafe_code=confirm_run_unsafe_code,
@@ -372,6 +377,8 @@ def evaluate(
     log_samples: bool = True,
     system_instruction: Optional[str] = None,
     apply_chat_template: Union[bool, str] = False,
+    no_generation_prompt: bool = False,
+    prompt_suffix: Optional[str] = None,
     fewshot_as_multiturn: bool = False,
     verbosity: str = "INFO",
     confirm_run_unsafe_code: bool = False,
@@ -457,6 +464,16 @@ def evaluate(
             )
     # end validation check
 
+    def get_chat_template(lm, add_generation_prompt=True):
+        original = getattr(lm, "apply_chat_template")
+        default_add_generation_prompt = add_generation_prompt
+        
+        @functools.wraps(original)
+        def wrapper(*args, add_generation_prompt=default_add_generation_prompt, **kwargs):
+            return original(*args, add_generation_prompt=add_generation_prompt, **kwargs)
+        
+        return wrapper
+
     # Cache the limit arg.
     limit_arg = limit
     limits = []
@@ -473,8 +490,13 @@ def evaluate(
             rewrite_requests_cache=rewrite_requests_cache,
             system_instruction=system_instruction,
             apply_chat_template=bool(apply_chat_template),
+            no_generation_prompt=no_generation_prompt,
+            prompt_suffix=prompt_suffix,
             fewshot_as_multiturn=fewshot_as_multiturn,
-            chat_template=getattr(lm, "apply_chat_template")
+            chat_template=get_chat_template(
+                lm,
+                add_generation_prompt=False if no_generation_prompt else True
+            )
             if apply_chat_template
             else None,
             tokenizer_name=getattr(lm, "tokenizer_name", "")

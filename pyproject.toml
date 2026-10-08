@@ -8,7 +8,7 @@ version = "0.4.7"
 authors = [
     {name="EleutherAI", email="contact@eleuther.ai"}
 ]
-description = "A framework for evaluating language models"
+description = "Evaluation code for identifying and recovering from unhelpful thoughts"
 readme = "README.md"
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -42,11 +42,14 @@ dependencies = [
 ]
 
 [tool.setuptools.packages.find]
-include = ["lm_eval*"]
+include = ["lm_eval*", "scripts"]
 
 # required to include yaml files in pip installation
 [tool.setuptools.package-data]
 lm_eval = ["**/*.yaml", "tasks/**/*"]
+
+[tool.setuptools.exclude-package-data]
+"*" = ["**/__pycache__/*", "**/*.pyc", "**/*.pyo"]
 
 [project.scripts]
 lm-eval = "lm_eval.__main__:cli_evaluate"
@@ -67,6 +70,8 @@ ifeval = ["langdetect", "immutabledict", "nltk>=3.9.1"]
 neuronx = ["optimum[neuronx]"]
 mamba = ["mamba_ssm", "causal-conv1d==1.0.2"]
 math = ["sympy>=1.12", "antlr4-python3-runtime==4.11"]
+scoring = ["numpy", "pandas", "sympy>=1.12"]
+judge = ["numpy", "openai>=1.0"]
 multilingual = ["nagisa>=0.2.7", "jieba>=0.42.1", "pycountry"]
 optimum = ["optimum[openvino]"]
 promptsource = ["promptsource>=0.2.3"]

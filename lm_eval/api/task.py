@@ -3,6 +3,7 @@ import ast
 import logging
 import random
 import re
+import hashlib
 from collections.abc import Callable
 from copy import deepcopy
 from dataclasses import asdict, dataclass
@@ -39,6 +40,11 @@ from lm_eval.api.registry import (
 from lm_eval.caching.cache import load_from_cache, save_to_cache
 from lm_eval.filters import build_filter_ensemble
 from lm_eval.prompts import get_prompt
+
+
+def short_hash(text, length=16):
+    digest_bytes = length // 2  # Each hex character represents 4 bits
+    return hashlib.blake2b(text.encode(), digest_size=digest_bytes).hexdigest()[:length]
 
 
 ALL_OUTPUT_TYPES = [
@@ -80,6 +86,7 @@ class TaskConfig(dict):
     process_results: Optional[Union[Callable, str]] = None
     use_prompt: Optional[str] = None
     description: str = ""
+    prompt_suffix: Optional[str] = None
     target_delimiter: str = " "
     fewshot_delimiter: str = "\n\n"
     fewshot_config: Optional[dict] = None
@@ -94,6 +101,7 @@ class TaskConfig(dict):
     should_decontaminate: bool = False
     doc_to_decontamination_query: Optional[str] = None
     gen_prefix: Optional[str] = None
+    # prompt_suffix: Optional[str] = None  # cumbersome as this cannot be overwritten using cmd
     metadata: Optional[dict] = (
         None  # by default, not used in the code. allows for users to pass arbitrary info to tasks
     )
@@ -384,6 +392,8 @@ class Task(abc.ABC):
         rewrite_requests_cache: bool = False,
         system_instruction: Optional[str] = None,
         apply_chat_template: bool = False,
+        no_generation_prompt: bool = False,
+        prompt_suffix: Optional[str] = None,
         fewshot_as_multiturn: bool = False,
         chat_template: Optional[Callable] = None,
         tokenizer_name: str = "",
@@ -395,6 +405,7 @@ class Task(abc.ABC):
 
         cache_key = f"requests-{self._config.task}-{self.config.num_fewshot}shot-rank{rank}-world_size{world_size}"
         cache_key += "-chat_template" if apply_chat_template else ""
+        cache_key += "-ngp" if no_generation_prompt else ""
         cache_key += "-fewshot_as_multiturn" if fewshot_as_multiturn else ""
         cache_key += (
             f"-system_prompt_hash{utils.hash_string(system_instruction)}"
@@ -402,6 +413,10 @@ class Task(abc.ABC):
             else ""
         )
         cache_key += f"-tokenizer{tokenizer_name}"
+        if self.config.prompt_suffix:
+            cache_key += f"-{short_hash(self.config.prompt_suffix)}"
+        else:
+            cache_key += f"-{short_hash(prompt_suffix)}" if prompt_suffix else ""
 
         cached_instances = load_from_cache(file_name=cache_key, cache=cache_requests)
 
@@ -448,15 +463,19 @@ class Task(abc.ABC):
                 fewshot_as_multiturn,
                 chat_template,
                 gen_prefix=self.doc_to_prefix(doc),
+                no_generation_prompt=no_generation_prompt,
             )
 
             # TODO: we should override self.config.repeats if doing greedy gen so users don't waste time+compute
+            if self.config.prompt_suffix:
+                prompt_suffix = utils.apply_template(self.config.prompt_suffix, doc)
             inst = self.construct_requests(
                 doc=doc,
                 ctx=fewshot_ctx,
                 metadata=(self.config["task"], doc_id, self.config.repeats),
                 apply_chat_template=apply_chat_template,
                 chat_template=chat_template,
+                prompt_suffix=prompt_suffix,
             )
 
             if not isinstance(inst, list):
@@ -1033,6 +1052,7 @@ class ConfigurableTask(Task):
         fewshot_as_multiturn: bool = False,
         chat_template: Optional[Callable] = None,
         gen_prefix: Optional[str] = None,
+        no_generation_prompt: bool = False,
     ) -> Union[str, List[str]]:
         """Returns a fewshot context string that is made up of a prepended description
         (if provided), the `num_fewshot` number of examples, and an appended prompt example.
@@ -1097,6 +1117,11 @@ class ConfigurableTask(Task):
                     doc, num_fewshot, gen_prefix=gen_prefix
                 )
 
+        if no_generation_prompt:
+            default_add_generation_prompt = False
+        else:
+            default_add_generation_prompt = False if gen_prefix else True        
+
         example = self.doc_to_text(doc)
         if apply_chat_template:
             if self.multiple_input:
@@ -1127,7 +1152,7 @@ class ConfigurableTask(Task):
                     labeled_examples_list.append(
                         chat_template(
                             chat,
-                            add_generation_prompt=False if gen_prefix else True,
+                            add_generation_prompt=default_add_generation_prompt,
                         )
                     )
                 return labeled_examples_list
@@ -1151,7 +1176,7 @@ class ConfigurableTask(Task):
                 # return lm.apply_chat_template(labeled_examples)
             return chat_template(
                 labeled_examples,
-                add_generation_prompt=False if gen_prefix else True,
+                add_generation_prompt=default_add_generation_prompt,
             )
         else:
             prefix = (
@@ -1419,6 +1444,10 @@ class ConfigurableTask(Task):
             else:
                 arguments = arguments + (multimodal_arg,)
 
+        prompt_suffix = kwargs.pop("prompt_suffix", None)
+        if prompt_suffix:
+            arguments = tuple([arguments[0] + prompt_suffix] + list(arguments[1:]))
+
         if self.OUTPUT_TYPE == "multiple_choice":
             request_list = [
                 Instance(
@@ -1667,6 +1696,10 @@ class MultipleChoiceTask(Task):
         return " " + doc["choices"][doc["gold"]]
 
     def construct_requests(self, doc: dict, ctx: str, **kwargs) -> List[Instance]:
+        prompt_suffix = kwargs.pop("prompt_suffix", None)
+        if prompt_suffix:
+            raise NotImplementedError
+
         # TODO: add mutual info here?
         return [
             Instance(
@@ -1747,11 +1780,17 @@ class PerplexityTask(Task):
     def construct_requests(self, doc: dict, ctx: Optional[str], **kwargs):
         if bool(ctx):
             raise ValueError
+        
+        arguments = (self.doc_to_target(doc),)
+
+        prompt_suffix = kwargs.pop("prompt_suffix", None)
+        if prompt_suffix:
+            raise NotImplementedError
 
         return Instance(
             request_type=self.OUTPUT_TYPE,
             doc=doc,
-            arguments=(self.doc_to_target(doc),),
+            arguments=arguments,
             idx=0,
             **kwargs,
         )

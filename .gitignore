@@ -13,6 +13,7 @@ venv
 temp
 __pycache__
 .ipynb_checkpoints
+*.ipynb
 temp
 test_logs/
 # IPython
@@ -23,3 +24,20 @@ lm_eval/caching/.cache
 # don't track files created by wandb
 wandb
 examples/wandb
+
+# Local credentials and generated research artifacts
+.env
+.env.*
+!.env.example
+results/
+paper_figures/
+rebuttal_figures/
+attention_analysis/
+weights/
+*.csv
+*.parquet
+*.jsonl
+
+# Local release preparation artifacts
+release/
+review/

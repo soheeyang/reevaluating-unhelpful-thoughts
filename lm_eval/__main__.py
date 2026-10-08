@@ -182,6 +182,18 @@ def setup_parser() -> argparse.ArgumentParser:
         ),
     )
     parser.add_argument(
+        "--no_generation_prompt",
+        action="store_true",
+        default=False,
+        help="If True, does not add generation prompt (https://huggingface.co/docs/transformers/main/en/chat_templating#what-are-generation-prompts) when chat template is applied"
+    )
+    parser.add_argument(
+        "--prompt_suffix",
+        type=str,
+        default=None,
+        help="Suffix added after chat_template is applied (thus different from gen_prefix)",
+    )
+    parser.add_argument(
         "--fewshot_as_multiturn",
         action="store_true",
         default=False,
@@ -400,6 +412,8 @@ def cli_evaluate(args: Union[argparse.Namespace, None] = None) -> None:
         evaluation_tracker=evaluation_tracker,
         system_instruction=args.system_instruction,
         apply_chat_template=args.apply_chat_template,
+        no_generation_prompt=args.no_generation_prompt,
+        prompt_suffix=args.prompt_suffix,
         fewshot_as_multiturn=args.fewshot_as_multiturn,
         gen_kwargs=args.gen_kwargs,
         task_manager=task_manager,
